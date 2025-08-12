@@ -4,28 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran PPDB SDIT INSANI 2026/2027</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="registration-container">
-        <!-- Header -->
-        <header class="registration-header">
-            <div class="logo-container">
-                <div class="logo"></div>
-                <h1>PPDB SDIT INSANI 2026/2027</h1>
-            </div>
+        <div class="registration-header">
+            <h1>PENDAFTARAN PPDB SDIT INSANI 2026/2027</h1>
             <div class="registration-steps">
                 <div class="step active">1. Data Calon Siswa</div>
                 <div class="step">2. Data Orang Tua</div>
                 <div class="step">3. Dokumen</div>
                 <div class="step">4. Konfirmasi</div>
             </div>
-        </header>
+        </div>
 
-        <!-- Form Pendaftaran -->
-        <main class="registration-form">
+        <div class="registration-form">
             <form id="ppdbForm">
                 <h2>Data Calon Siswa</h2>
                 
@@ -65,44 +60,11 @@
                     <textarea id="alamat" name="alamat" rows="3" required></textarea>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="agama">Agama</label>
-                        <select id="agama" name="agama" required>
-                            <option value="">Pilih Agama</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Buddha">Buddha</option>
-                            <option value="Konghucu">Konghucu</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="anak_ke">Anak Ke-</label>
-                        <input type="number" id="anak_ke" name="anak_ke" min="1" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="sekolah_asal">Sekolah Asal (TK/PAUD)</label>
-                    <input type="text" id="sekolah_asal" name="sekolah_asal">
-                </div>
-
                 <div class="form-actions">
-                    <button type="button" class="btn-next">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Selanjutnya <i class="fas fa-arrow-right"></i></button>
                 </div>
             </form>
-        </main>
-
-        <!-- Footer -->
-        <footer class="registration-footer">
-            <p>© 2026 SDIT INSANI - Penerimaan Peserta Didik Baru</p>
-            <div class="contact-info">
-                <p><i class="fas fa-phone"></i> (021) 12345678</p>
-                <p><i class="fas fa-envelope"></i> ppdb@sditinsani.sch.id</p>
-            </div>
-        </footer>
+        </div>
     </div>
 
     <script src="registration.js"></script>
