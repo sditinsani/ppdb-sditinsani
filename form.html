@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran SDIT INSANI</title>
+    <link rel="stylesheet" href="partials.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .form-header {
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .form-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .form-header p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .form-steps {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        .step.active {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .step.active::before {
+            content: '✓';
+            margin-right: 5px;
+        }
+        
+        .form-content {
+            margin-top: 30px;
+        }
+        
+        .form-notice {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .form-notice h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .form-notice ul {
+            padding-left: 20px;
+        }
+        
+        .form-notice li {
+            margin-bottom: 8px;
+        }
+        
+        .form-link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .form-link-button:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 25px;
+                margin: 20px auto;
+            }
+            
+            .form-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .form-header p {
+                font-size: 1rem;
+            }
+            
+            .form-steps {
+                gap: 8px;
+            }
+            
+            .step {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .form-link-button {
+                font-size: 1rem;
+                padding: 12px 25px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="LOGO_SDIT_INSANI.png" alt="Logo SDIT INSANI" class="logo">
+            <h1>Formulir Pendaftaran PPDB</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-content">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Pendaftaran Peserta Didik Baru</h2>
+                    <p>SDIT INSANI Tahun Ajaran 2026/2027</p>
+                </div>
+                
+                <div class="form-steps">
+                    <div class="step active">1. Data Calon Siswa</div>
+                    <div class="step">2. Data Orang Tua</div>
+                    <div class="step">3. Dokumen</div>
+                    <div class="step">4. Konfirmasi</div>
+                </div>
+                
+                <div class="form-content">
+                    <div class="form-notice">
+                        <h4><i class="fas fa-info-circle"></i> Informasi Penting:</h4>
+                        <ul>
+                            <li>Formulir harus diisi oleh orang tua/wali calon siswa</li>
+                            <li>Pastikan data yang dimasukkan benar dan lengkap</li>
+                            <li>Formulir tidak dapat diubah setelah dikirim</li>
+                            <li>Simpan bukti pendaftaran yang akan dikirim ke email Anda</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Silakan klik tombol di bawah ini untuk mengisi formulir pendaftaran lengkap. Anda akan diarahkan ke Google Form untuk proses pengisian data dan pengunggahan berkas.</p>
+                    
+                    <a href="https://forms.gle/5RyqCmDr19vLc7YXA" target="_blank" class="form-link-button">
+                        <i class="fas fa-edit"></i> Mulai Isi Formulir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-simple">
+            <p>Alamat : Jl. Karamat No. 55 Gunung Puyuh Kota Sukabumi</p>
+            <p>HP. 081563180071</p>
+            <div class="footer-social-block">
+                <a href="http://www.sditinsani.net" target="_blank">www.sditinsani.net</a> |
+                <a href="https://www.facebook.com/sditinsanisukabumi" target="_blank">FB : sditinsanisukabumi</a> |
+                <a href="https://www.instagram.com/sditinsani" target="_blank">IG : sditinsani</a>
+            </div>
+            <p class="copyright">&copy; 2024 PPDB SDIT INSANI. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
