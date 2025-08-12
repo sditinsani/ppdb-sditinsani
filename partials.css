@@ -1,0 +1,172 @@
+/* Variabel Warna */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #007bff;
+    --accent-color: #ffc107;
+    --background-color: #f8f9fa;
+    --text-color: #34495e;
+    --border-color: #e9ecef;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color), #1a2a3a);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    min-height: calc(100vh - 200px);
+}
+
+/* Toast Message */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none;
+    animation: slideIn 0.5s forwards;
+}
+
+.toast.hidden {
+    animation: slideOut 0.5s forwards;
+}
+
+.toast-content {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast-icon {
+    font-size: 1.2em;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--primary-color), #1a2a3a);
+    color: #ecf0f1;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-simple {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-simple p {
+    margin: 5px 0;
+}
+
+.footer-social-block {
+    margin: 15px 0;
+}
+
+.footer-social-block a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+.footer-social-block a:hover {
+    color: white;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+}
