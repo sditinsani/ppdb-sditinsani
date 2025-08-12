@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Pendaftaran SDIT INSANI</title>
+  <link rel="stylesheet" href="partials.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .status-container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .status-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .status-header h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        position: relative;
+    }
+    
+    .status-header h2::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+        margin: 15px auto;
+        border-radius: 2px;
+    }
+    
+    .status-header p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+    
+    .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .toolbar-buttons {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .toolbar-button {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .toolbar-button:hover {
+        background-color: var(--primary-color);
+    }
+    
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-grow: 1;
+        max-width: 400px;
+    }
+    
+    #search-input {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+    
+    #search-input:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    }
+    
+    .total-pendaftar {
+        font-size: 1rem;
+        color: #555;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+    }
+    
+    th, td {
+        padding: 15px 12px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 600;
+        position: sticky;
+        top: 0;
+    }
+    
+    tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .status-diterima {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    
+    .status-ditolak {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+    
+    .status-proses {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+    
+    .card-container {
+        display: none;
+    }
+    
+    .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    
+    .card-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 15px;
+        font-weight: 600;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    .card-row {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .card-row:last-child {
+        border-bottom: none;
+    }
+    
+    .card-label {
+        flex: 1;
+        color: #666;
+        font-weight: 500;
+    }
+    
+    .card-value {
+        flex: 2;
+        text-align: right;
+    }
+    
+    .loading, .error, .no-data {
+        padding: 30px;
+        text-align: center;
+        font-style: italic;
+        color: #888;
+    }
+    
+    @media (max-width: 768px) {
+        .status-container {
+            padding: 20px;
+        }
+        
+        .toolbar {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        .search-container {
+            max-width: 100%;
+        }
+        
+        .table-container {
+            display: none;
+        }
+        
+        .card-container {
+            display: block;
+        }
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <div class="header-content">
+          <img src="LOGO_SDIT_INSANI.png" alt="Logo SDIT INSANI" class="logo">
+          <h1>Status Pendaftaran PPDB</h1>
+      </div>
+  </header>
+
+  <main>
+    <div class="main-content">
+      <div class="status-container">
+          <div class="status-header">
+              <h2>Cek Status Pendaftaran</h2>
+              <p>Lihat status terkini pendaftaran calon peserta didik</p>
+          </div>
+          
+          <div class="toolbar">
+            <div class="toolbar-buttons">
+              <a href="index.html" class="toolbar-button">
+                <i class="fas fa-home"></i>
+                Dashboard
+              </a>
+              <button class="toolbar-button" id="refresh-data-button">
+                <i class="fas fa-sync-alt"></i>
+                Refresh
+              </button>
+            </div>
+            <div class="search-container">
+              <input type="text" id="search-input" placeholder="Cari berdasarkan nama...">
+              <span id="total-pendaftar" class="total-pendaftar"></span>
+            </div>
+          </div>
+          
+          <div class="table-container">
+            <table id="data-table">
+              <thead>
+                <tr>
+                  <th>No. Urut</th>
+                  <th>Nama Lengkap</th>
+                  <th>Asal TK/RA</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Tanggal Daftar</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="6" class="loading">⏳ Memuat data...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="card-container" id="card-view">
+            <p class="loading">⏳ Memuat data...</p>
+          </div>
+      </div>
+    </div>
+  </main>
+  
+  <div id="toast-message" class="toast">
+    <div class="toast-content">
+      <span class="toast-icon">✅</span>
+      <p>Data berhasil diperbarui!</p>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-simple">
+        <p>Alamat : Jl. Karamat No. 55 Gunung Puyuh Kota Sukabumi</p>
+        <p>HP. 081563180071</p>
+        <div class="footer-social-block">
+            <a href="http://www.sditinsani.net" target="_blank">www.sditinsani.net</a> |
+            <a href="https://www.facebook.com/sditinsanisukabumi" target="_blank">FB : sditinsanisukabumi</a> |
+            <a href="https://www.instagram.com/sditinsani" target="_blank">IG : sditinsani</a>
+        </div>
+        <p class="copyright">&copy; 2024 PPDB SDIT INSANI. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
